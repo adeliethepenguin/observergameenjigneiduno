@@ -17,15 +17,4 @@ public class EventCarrier : MonoBehaviour
     public void OutOfTime(){ OnOutOfTime?.Invoke(); }
     public void FuelGet(int amount){ OnFuelGet?.Invoke(amount); }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -11,18 +11,30 @@ public class SoundManager : MonoBehaviour
 
     void PlayCrashSound()
     {
-        crashSound.Play();
+        Debug.Log("crashed!");
+        if (crashSound != null)
+        {
+            crashSound.Play();
+        }
     }
 
     void PlayGameOverSound()
     {
-        gameOverSound.Play();
-    }
+        Debug.Log("game over!");
+        if (gameOverSound != null)
+        {
+            gameOverSound.Play();
+        }
+        }
 
-    void PlayFuelGainSound(int blargh)
+        void PlayFuelGainSound(int blargh)
     {
         Debug.Log("You gained " + blargh + " fuel!");
-        fuelGainSound.Play();
+        if (fuelGainSound != null)
+        {
+            
+            fuelGainSound.Play();
+        }
     }
     
 

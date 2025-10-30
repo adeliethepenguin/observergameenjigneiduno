@@ -30,7 +30,7 @@ public class StreetObject : MonoBehaviour
                 fuel = false;
                 sprite.color = Color.black;
             }
-        }
+        } 
     }
 
     void FixedUpdate()
