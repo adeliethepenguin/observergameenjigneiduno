@@ -48,6 +48,9 @@ public class SoundManager : MonoBehaviour
 
     void OnDestroy()
     {
-
+        EventCarrier.OnCrashed -= PlayCrashSound;
+        EventCarrier.OnOutOfTime -= PlayGameOverSound;
+        EventCarrier.OnOutOfFuel -= PlayGameOverSound;
+        EventCarrier.OnFuelGet -= PlayFuelGainSound;
     }
 }

@@ -9,18 +9,21 @@ public class UIControl : MonoBehaviour
     public Image gameOverScreen;
     public TMP_Text timerText;
     public TMP_Text fuelText;
+    float timer = 0;
+    public float maxTime;
 
-    
-
-    // Start is called before the first frame update
-    void Start()
+    void ShowGameOverScreen()
     {
-        
+        gameOverScreen.gameObject.SetActive(true);
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        UpdateTimer();
+    }
+
+    void UpdateTimer()
+    {
+        timerText.text = "Time left: "+(maxTime-timer);
     }
 }
