@@ -20,7 +20,6 @@ public class StreetObject : Sector
     {
         if (this.transform.position.y <= -4)
         {
-            Debug.Log(this.transform.position.y);
             this.transform.position = new Vector3(Random.Range(-4.5f, 4.5f), 6.5f, transform.position.z);
             if (Random.Range(0, 9) > 8)
             {

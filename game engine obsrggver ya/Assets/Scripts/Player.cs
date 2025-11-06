@@ -7,8 +7,9 @@ public class Player : MonoBehaviour
     public float speed;
     bool canDrive = true;
     public EventCarrier events;
-    int fuel = 100;
+    public int fuel = 100;
     public int fuelGainAmount;
+    int counter = 0;
     private void Awake()
     {
         EventCarrier.OnOutOfFuel += DisableDriving;
@@ -28,21 +29,19 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<StreetObject>())
-        {
+        Debug.Log("trigger");
             StreetObject streetcar = collision.GetComponent<StreetObject>();
 
             streetcar.crashed = true;
-            if (streetcar.fuel)
-            {
-                events.FuelGet(fuelGainAmount);
-            }
-
+        if (streetcar.fuel)
+        {
+            events.FuelGet(fuelGainAmount);
         }
     }
 
     void Update()
     {
+        
         if (Input.GetKey(KeyCode.A))
         {
             transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
@@ -51,6 +50,19 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        
+        if (counter > 120)
+        {
+            fuel -= 1;
+            counter = 0;
+        }
+        
+
+        counter += 1;
     }
 
 

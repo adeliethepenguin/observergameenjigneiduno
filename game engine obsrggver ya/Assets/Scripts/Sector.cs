@@ -10,7 +10,7 @@ public class Sector : MonoBehaviour
     void Awake()
     {
         Clean();
-        IsLoaded = false;
+        IsLoaded = true ;
     }
 
     public void MarkDirty()
@@ -32,7 +32,7 @@ public class Sector : MonoBehaviour
             }
             else
             {
-                this.GetComponent<SpriteRenderer>().color = Color.black;
+                this.GetComponent<SpriteRenderer>().color = Color.red;
             }
         }
         

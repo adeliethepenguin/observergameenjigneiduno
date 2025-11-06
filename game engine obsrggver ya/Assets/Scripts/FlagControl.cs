@@ -9,14 +9,13 @@ public class FlagControl : MonoBehaviour
     void Update()
     {
 
-
         foreach(StreetObject car in cars)
         {
             if (car.crashed == true&&car.IsLoaded)
-            {
+            { 
                 car.UnLoad();
             }
-            if (car.transform.position.y >= 5.5 && !car.IsLoaded)
+            if (car.transform.position.y >= 5 && !car.IsLoaded)
             {
                 car.Load();
             }

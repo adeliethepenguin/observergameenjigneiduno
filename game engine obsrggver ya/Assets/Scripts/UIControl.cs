@@ -11,6 +11,7 @@ public class UIControl : MonoBehaviour
     public TMP_Text fuelText;
     float timer = 0;
     public float maxTime;
+    public Player player;
 
     void ShowGameOverScreen()
     {
@@ -21,7 +22,10 @@ public class UIControl : MonoBehaviour
         timer += Time.deltaTime;
         UpdateTimer();
     }
-
+    void UpdateFuel()
+    {
+        fuelText.text = "Fuel Amount: " + player.fuel;
+    }
     void UpdateTimer()
     {
         timerText.text = "Time left: "+(maxTime-timer);
