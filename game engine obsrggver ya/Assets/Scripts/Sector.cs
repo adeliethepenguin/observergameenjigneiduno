@@ -20,10 +20,12 @@ public class Sector : MonoBehaviour
 
     public void Load()
     {
+        
         IsLoaded = true;
         this.GetComponent<Collider2D>().enabled=true;
         if (this.GetComponent<StreetObject>())
         {
+            this.GetComponent<StreetObject>().crashed = false;
             if (this.GetComponent<StreetObject>().fuel)
             {
                 this.GetComponent<SpriteRenderer>().color = Color.green;
@@ -40,6 +42,7 @@ public class Sector : MonoBehaviour
         IsLoaded = false;
         this.GetComponent<Collider2D>().enabled = false;
         this.GetComponent<SpriteRenderer>().color = Color.grey;
+
     }
 
 

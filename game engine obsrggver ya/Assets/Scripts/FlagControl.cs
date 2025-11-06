@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class FlagControl : MonoBehaviour
 {
-    public Sector[] sectors;
+    public StreetObject[] cars;
 
     void Update()
     {
-        foreach(Sector sector in sectors)
-        {
 
+
+        foreach(StreetObject car in cars)
+        {
+            if (car.crashed == true&&car.IsLoaded)
+            {
+                car.UnLoad();
+            }
+            if (car.transform.position.y >= 5.5 && !car.IsLoaded)
+            {
+                car.Load();
+            }
         }
 
 

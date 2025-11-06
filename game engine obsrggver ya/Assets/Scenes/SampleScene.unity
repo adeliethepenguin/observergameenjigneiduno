@@ -134,8 +134,9 @@ GameObject:
   - component: {fileID: 316788188}
   - component: {fileID: 316788187}
   - component: {fileID: 316788189}
+  - component: {fileID: 316788190}
   m_Layer: 0
-  m_Name: car
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,6 +233,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &316788190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 316788186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f154340eaf003e54dbcfc24f13b76014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  events: {fileID: 1532368413}
+  fuelGainAmount: 5
 --- !u!1 &474064108
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   fuel: 0
+  crashed: 0
   sprite: {fileID: 0}
 --- !u!61 &1509327853
 BoxCollider2D:
@@ -907,6 +924,49 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1532368412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1532368414}
+  - component: {fileID: 1532368413}
+  m_Layer: 0
+  m_Name: EventMan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1532368413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532368412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa682189e05de341bfa7a1cc06f9243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1532368414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532368412}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.9211903, y: 0.07288348, z: -7.9529257}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1672913770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,6 +1391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   fuel: 0
+  crashed: 0
   sprite: {fileID: 0}
 --- !u!61 &1852866467
 BoxCollider2D:
@@ -1456,6 +1517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   fuel: 0
+  crashed: 0
   sprite: {fileID: 0}
 --- !u!61 &1888390755
 BoxCollider2D:
@@ -1581,6 +1643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   fuel: 0
+  crashed: 0
   sprite: {fileID: 0}
 --- !u!61 &2088474507
 BoxCollider2D:
@@ -1706,6 +1769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   fuel: 0
+  crashed: 0
   sprite: {fileID: 0}
 --- !u!61 &2110491925
 BoxCollider2D:

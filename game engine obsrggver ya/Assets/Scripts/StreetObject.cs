@@ -21,7 +21,7 @@ public class StreetObject : Sector
         if (this.transform.position.y <= -4)
         {
             Debug.Log(this.transform.position.y);
-            this.transform.position = new Vector3(Random.Range(-4.5f, 4.5f), 5.5f, transform.position.z);
+            this.transform.position = new Vector3(Random.Range(-4.5f, 4.5f), 6.5f, transform.position.z);
             if (Random.Range(0, 9) > 8)
             {
                 fuel = true;
@@ -33,7 +33,10 @@ public class StreetObject : Sector
                 sprite.color = Color.green;
             }
         }
-        transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, transform.position.z);
+        else
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, transform.position.z);
+        }
     }
 
     void FixedUpdate()

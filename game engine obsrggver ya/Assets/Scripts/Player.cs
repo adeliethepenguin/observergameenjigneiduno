@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public float speed;
     bool canDrive = true;
-
-
+    public EventCarrier events;
+    int fuel = 100;
+    public int fuelGainAmount;
     private void Awake()
     {
         EventCarrier.OnOutOfFuel += DisableDriving;
@@ -30,6 +32,12 @@ public class Player : MonoBehaviour
         {
             StreetObject streetcar = collision.GetComponent<StreetObject>();
 
+            streetcar.crashed = true;
+            if (streetcar.fuel)
+            {
+                events.FuelGet(fuelGainAmount);
+            }
+
         }
     }
 
@@ -37,7 +45,11 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-
+            transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
         }
     }
 
