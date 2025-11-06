@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StreetObject : MonoBehaviour
+public class StreetObject : Sector
 {
     public float speed;
     public bool fuel;
+    public bool crashed = false;
     public SpriteRenderer sprite;
 
     void Start()
@@ -17,25 +18,27 @@ public class StreetObject : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y <= -0.4f)
+        if (this.transform.position.y <= -4)
         {
-            transform.position = new Vector3(Random.Range(-0.45f, 0.45f), 0.35f, transform.position.z);
+            Debug.Log(this.transform.position.y);
+            this.transform.position = new Vector3(Random.Range(-4.5f, 4.5f), 5.5f, transform.position.z);
             if (Random.Range(0, 9) > 8)
             {
                 fuel = true;
-                sprite.color = Color.green;
+                sprite.color = Color.black;
             }
             else
             {
                 fuel = false;
-                sprite.color = Color.black;
+                sprite.color = Color.green;
             }
-        } 
+        }
+        transform.position = new Vector3(transform.position.x, transform.position.y - speed * Time.deltaTime, transform.position.z);
     }
 
     void FixedUpdate()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y - speed, transform.position.z);
+       
         
     }
 

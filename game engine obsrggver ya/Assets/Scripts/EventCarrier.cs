@@ -12,7 +12,7 @@ public class EventCarrier : MonoBehaviour
     public static Action<int> OnFuelGet;
     public static Action GameRestart;
 
-    public void Crashed(){ OnCrashed?.Invoke(); }
+    public void Crashed(GameObject enemy){ OnCrashed?.Invoke(); }
     public void OutOfFuel(){ OnOutOfFuel?.Invoke(); }
     public void OutOfTime(){ OnOutOfTime?.Invoke(); }
     public void FuelGet(int amount){ OnFuelGet?.Invoke(amount); }
