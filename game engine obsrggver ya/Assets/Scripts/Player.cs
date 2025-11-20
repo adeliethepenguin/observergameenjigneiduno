@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public int fuel = 100;
     public int fuelGainAmount;
     int counter = 0;
+
+    public Command com;
     private void Awake()
     {
         EventCarrier.OnOutOfFuel += DisableDriving;
@@ -50,6 +52,22 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
         }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            com.GoUp(transform);
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            com.GoDown(transform);
+        }
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            com.Undo(transform);
+        }
+
     }
 
     private void FixedUpdate()
