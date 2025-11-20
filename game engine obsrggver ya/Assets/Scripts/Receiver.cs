@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Receiver : MonoBehaviour
 {
-    public Stack<int> positions;
+    public Stack<int> positions = new Stack<int>();
 
-    private void Start()
+    private void Awake()
     {
         positions.Push(0);
     }
-
+    
 
     public void PushVert(int newPos)
     {
@@ -24,6 +24,10 @@ public class Receiver : MonoBehaviour
 
     public int LastVert()
     {
+        if (positions.Count == 0)
+        {
+            positions.Push(0);
+        }
         return positions.Peek();
     }
 }

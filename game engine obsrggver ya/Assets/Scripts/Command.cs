@@ -11,6 +11,7 @@ public class Command : MonoBehaviour
 
     public void GoUp(Transform trans)
     {
+        
         if (rec.LastVert()==positions[0])
         {
             trans.position = new Vector3(trans.position.x, positions[1], trans.position.z);
