@@ -50,9 +50,9 @@ public class Command : MonoBehaviour
 
     public void Undo(Transform trans)
     {
-        trans.position = new Vector3(trans.position.x, rec.LastVert(), trans.position.z);
-
         rec.PopLastVert();
+        trans.position = new Vector3(trans.position.x, rec.LastVert(), trans.position.z);
+        
     }
 
 }
